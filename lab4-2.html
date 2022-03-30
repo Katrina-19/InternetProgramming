@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method= "POST" action="http://localhost/handler4-2.php" id="form">
+    <input type="text" id="name" name="name" min="1" placeholder="Введите имя" required><br><br>
+    <input type="text" id="surname" name="surname" min="1" placeholder="Введите фамилию" required><br><br>
+    <input type="number" id="age" name="age" min="1" max="120" placeholder="Введите возраст" required><br><br>
+    <input type="email" id="email" name="email" placeholder="Введите e-mail" required><br>
+    <p>Выберите язык для изучения:<br>
+    <input type="checkbox" id="check1" name="en" ><label for="en"> English</label><br><br>
+    <input type="checkbox" id="check2" name="ch" ><label for="ch"> Chinese</label><br><br>
+    <input type="checkbox" id="check3" name="fr" ><label for="fr"> French</label><br><br>
+    <input type="checkbox" id="check4" name="it" ><label for="it"> Italian</label><br><br>
+    <input type="checkbox" id="check5" name="dch" ><label for="dch"> Deutsch</label><br><br>
+        <button type="button" onclick="isChecked()" >Submit</button>
+    <input type="reset" value="Reset">
+</form>
+<script>
+    var ch1 = document.getElementById('check1');
+    var ch2 = document.getElementById('check2');
+    var ch3 = document.getElementById('check3');
+    var ch4 = document.getElementById('check4');
+    var ch5 = document.getElementById('check5');
+    function isChecked() {
+        if (ch1.checked||ch2.checked||ch3.checked||ch4.checked||ch5.checked) {
+            document.getElementById('form').submit();
+        } else {
+            alert( 'Выберите язык для изучения' );
+            document.getElementById('form').abort();
+        }
+    }
+</script>
+</body>
+</html>

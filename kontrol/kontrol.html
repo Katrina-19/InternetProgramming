@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="kontrol.css">
+</head>
+<body>
+<form method= "POST" action="http://localhost/kontrol/kontrol.php" id="form">
+    <p>Введите имя:
+    <input type="text" id="name" name="name" min="1" placeholder="Введите имя" required><br><br>
+    <p>Введите фамилию:
+        <input type="text" id="surname" name="surname" min="1" placeholder="Введите фамилию" required><br><br>
+    <p>Введите отчество:
+    <input type="text" id="potronymic" name="potronymic" min="1" placeholder="Введите отчество" required><br><br>
+    <p>Введите дату рождения:
+    <input type="date" id="dateOfBirth" name="dateOfBirth" placeholder="Введите дату рождения" required><br><br>
+    <p>Введите электронную почту:
+    <input type="email" id="email" name="email" placeholder="Введите e-mail" required><br><br>
+    <p>Введите номер телефона:
+    <input type="text" id="tel" name="tel" placeholder="Введите номер телефона" required><br><br>
+    <p>Выберите услуги:<br>
+        <input type="checkbox" id="check1" name="massazh" ><label for="massazh"> массаж</label><br><br>
+        <input type="checkbox" id="check2" name="chistka" ><label for="chistka"> чистка лица</label><br><br>
+        <input type="checkbox" id="check3" name="gryaz" ><label for="gryaz"> грязевые ванны</label><br><br>
+        <input type="checkbox" id="check4" name="sol" ><label for="sol"> солевая пещера</label><br><br>
+        <input type="checkbox" id="check5" name="sun" ><label for="sun"> солнечная ванна</label><br><br>
+        <p>Введите желаемую дату оказания процедур:
+        <input type="date" id="dateOfUsluga" name="dateOfUsluga" placeholder="Введите желаемую дату проведения услуг" required><br><br>
+        <button type="button" onclick="isChecked()" >Submit</button>
+        <input type="reset" value="Reset">
+</form>
+<script>
+    var ch1 = document.getElementById('check1');
+    var ch2 = document.getElementById('check2');
+    var ch3 = document.getElementById('check3');
+    var ch4 = document.getElementById('check4');
+    var ch5 = document.getElementById('check5');
+    var name = document.getElementById('name');
+    var surname = document.getElementById('surname');
+    var potronymic = document.getElementById('potronymic');
+    var dateOfBirth = document.getElementById('dateOfBirth');
+    var email = document.getElementById('email');
+    var tel = document.getElementById('tel');
+    var dateOfUsluga = document.getElementById('dateOfUsluga');
+    function isChecked() {
+        if(name!=""||surname!=""||potronymic!=""||dateOfBirth!=""||email!=""||tel!=""||dateOfUsluga!="") {
+            if ((ch1.checked&&ch2.checked)||(ch1.checked&&ch3.checked)||(ch1.checked&&ch4.checked)||(ch1.checked&&ch5.checked) || (ch2.checked&&ch3.checked)||(ch2.checked&&ch4.checked)||(ch2.checked&&ch5.checked) || (ch3.checked&&ch4.checked) || (ch3.checked&&ch5.checked) || (ch4.checked&&ch5.checked)) {
+            } else {
+                alert('Выберите е менее двух услуг');
+                document.getElementById('form').abort();
+            }
+            document.getElementById('form').submit();
+        }
+        else{
+                alert( 'Заполните все поля' );
+                document.getElementById('form').abort();
+        }
+    }
+</script>
+</body>
+</html>

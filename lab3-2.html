@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Разбор текста</title>
+ </head>
+ <body>
+ <form>
+  <p><b>Введите текст:</b></p>
+  <p><textarea id="comment"></textarea></p>
+  <button onclick="splitString()">Результат</button>
+ </form>
+ <script>
+    function splitString() {
+        var text = document.getElementById("comment").value;
+        var result = text.split( new RegExp('[,;\n!?.-]', 'g'));
+        alert(result)
+    }
+  </script>
+ </body>
+</html>

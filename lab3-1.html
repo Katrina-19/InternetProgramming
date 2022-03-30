@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>Калькулятор</title>
+	<style>
+		button:focus {
+		 border-color: #0000d0;
+		}
+	</style>
+</head>
+<body>
+	<input id="num1" />
+	<div id="operator_btns">
+	  <button id="plus" onclick="znach='+'">+</button>
+	  <button id="minus" onclick="znach='-'">-</button>
+	  <button id="multiply" onclick="znach='*'">x</button>
+	  <button id="divide" onclick="znach='/'">:</button>
+	</div>
+	<input id="num2" />
+	<br>
+	<button onclick="func()">=</button>
+	<p id="result"></p>
+	<script>
+	  var znach;
+	  function func() {
+	    var result;
+	    var num1 = Number(document.getElementById("num1").value);
+	    var num2 = Number(document.getElementById("num2").value);
+        if(document.getElementById("num1").value=="" || document.getElementById("num2").value=="" || document.getElementById("num1").value=="" && document.getElementById("num2").value==""){
+            alert("Please enter a number")
+        }
+        else
+	    {
+			if(znach==null) alert("Deside action");
+			else{
+            switch (znach) {
+	      case '+':
+	        result = num1 + num2;
+	        break;
+	      case '-':
+	        result = num1 - num2;
+	        break;
+	      case '*':
+	        result = num1 * num2;
+	        break;
+	      case '/':
+              if(num2==0){
+                alert("Invalid operation. Division by zero");
+                break;
+              }
+	        else result = num1 / num2;
+	        break;
+		}
+	    }}
+		if(result==undefined||isNaN(result)){
+			alert("Invalid operation");
+			document.getElementById("num1").value="";
+			document.getElementById("num2").value="";
+			document.getElementById("result").innerHTML = "";
+			num2.innerHTML="";
+			alert("!!!");
+		}
+		else{
+	    document.getElementById("result").innerHTML = result;
+	  }}
+	</script>
+</body>
+</html>

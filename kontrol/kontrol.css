@@ -1,0 +1,19 @@
+p{
+    font-size:16pt;
+    font-family: SimSun;
+    font-weight: bold;
+}
+
+input{
+    font-size:14pt;
+    font-family: SimSun;
+    font-style: italic;
+}
+html{
+    background-color: blueviolet;
+    color:white;
+}
+input:empty {
+    border-color: green;
+    border-width: medium;
+}
